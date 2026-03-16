@@ -1,0 +1,61 @@
+baseURL: https://linynZ.github.io/blog/
+languageCode: zh-cn
+defaultContentLanguage: zh
+title: "Linynqq's Blog"
+theme: PaperMod
+paginate: 10
+
+params:
+  env: production
+  description: "Linynqq 的个人博客 — 作品集、游戏开发与技术分享"
+  author: Linynqq
+
+  # PaperMod specific
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "Linynqq's Blog"
+    Content: "欢迎来到我的个人博客 — 这里有我的作品集、游戏项目和技术文章。"
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/linynZ"
+
+  assets:
+    favicon: "/favicon.ico"
+
+menu:
+  main:
+    - identifier: posts
+      name: 文章
+      url: /posts/
+      weight: 10
+    - identifier: portfolio
+      name: 作品集
+      url: /portfolio/
+      weight: 20
+    - identifier: about
+      name: 关于
+      url: /about/
+      weight: 30
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  highlight:
+    style: dracula
+    lineNos: false
