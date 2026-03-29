@@ -1,0 +1,94 @@
+<!-- Reading Progress Bar (only on single post pages) -->
+<div id="reading-progress"></div>
+
+<script>
+(function () {
+    'use strict';
+
+    // === 1. Post card staggered animation for >6 cards ===
+    var cards = document.querySelectorAll('.post-entry');
+    if (cards.length > 6) {
+        for (var i = 6; i < cards.length; i++) {
+            var delay = 0.1 * (i + 1);
+            cards[i].style.animation = 'fadeInUp 0.5s ease-out ' + delay + 's both';
+        }
+    }
+
+    // === 2. Skill bar IntersectionObserver ===
+    var skillItems = document.querySelectorAll('.skill-item');
+    if (skillItems.length > 0 && 'IntersectionObserver' in window) {
+        var skillObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('skill-animate');
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillItems.forEach(function (item) {
+            skillObserver.observe(item);
+        });
+    }
+
+    // === 3. Reading progress bar (single post pages only) ===
+    var progressBar = document.getElementById('reading-progress');
+    var postSingle = document.querySelector('.post-single');
+    if (progressBar && postSingle) {
+        window.addEventListener('scroll', function () {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight > 0) {
+                var progress = (scrollTop / docHeight) * 100;
+                progressBar.style.width = progress + '%';
+            }
+        }, { passive: true });
+    } else if (progressBar) {
+        progressBar.style.display = 'none';
+    }
+
+    // === 4. Homepage title typing effect ===
+    var homeTitle = document.querySelector('.home-info .entry-hint-about');
+    if (!homeTitle) {
+        // PaperMod uses different selectors in different versions
+        var homeInfoH1 = document.querySelector('.first-entry .entry-hint-about');
+        if (homeInfoH1) homeTitle = homeInfoH1;
+    }
+    if (homeTitle) {
+        var fullText = homeTitle.textContent;
+        homeTitle.textContent = '';
+        homeTitle.classList.add('typing-active');
+
+        setTimeout(function () {
+            var charIndex = 0;
+            var typeInterval = setInterval(function () {
+                if (charIndex < fullText.length) {
+                    homeTitle.textContent += fullText.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(typeInterval);
+                    homeTitle.classList.remove('typing-active');
+                    homeTitle.classList.add('typing-done');
+                }
+            }, 60);
+        }, 800);
+    }
+
+    // === 5. Scroll reveal IntersectionObserver ===
+    var revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(function (el) {
+            revealObserver.observe(el);
+        });
+    }
+})();
+</script>

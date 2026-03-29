@@ -1,0 +1,55 @@
+/* === Card Hover Effects === */
+
+.post-entry {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-entry:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode hover shadow */
+.dark .post-entry:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation menu underline expand animation */
+#menu a span {
+    position: relative;
+}
+
+#menu a span::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+#menu a:hover span::after,
+#menu a.active span::after {
+    width: 100%;
+}
+
+/* Social icons hover scale */
+.social-icons a {
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.15);
+}
+
+/* Tag hover float */
+.post-tags a {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-tags a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

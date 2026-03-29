@@ -1,0 +1,22 @@
+/* === Portfolio Badge Styles === */
+
+.badge-lang,
+.badge-tool {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0.2rem;
+}
+
+.badge-lang {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+}
+
+.badge-tool {
+    background: var(--entry);
+    color: var(--primary);
+    border: 1px solid var(--border);
+}

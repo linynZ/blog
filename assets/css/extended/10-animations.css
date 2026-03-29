@@ -1,0 +1,71 @@
+/* === Global Entry Animations === */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: currentColor; }
+}
+
+/* Main content fade-in up */
+.main {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Home info delayed fade-in */
+.home-info {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+/* Post entries staggered entrance */
+.post-entry:nth-child(1) { animation: fadeInUp 0.5s ease-out 0.1s both; }
+.post-entry:nth-child(2) { animation: fadeInUp 0.5s ease-out 0.2s both; }
+.post-entry:nth-child(3) { animation: fadeInUp 0.5s ease-out 0.3s both; }
+.post-entry:nth-child(4) { animation: fadeInUp 0.5s ease-out 0.4s both; }
+.post-entry:nth-child(5) { animation: fadeInUp 0.5s ease-out 0.5s both; }
+.post-entry:nth-child(6) { animation: fadeInUp 0.5s ease-out 0.6s both; }
+
+/* Single post page */
+.post-header {
+    animation: fadeIn 0.6s ease-out both;
+}
+
+.post-content {
+    animation: fadeIn 0.6s ease-out 0.3s both;
+}
+
+/* Accessibility: disable all animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

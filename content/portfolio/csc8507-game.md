@@ -6,6 +6,16 @@ tags: ["游戏", "C++", "OpenGL"]
 summary: "团队合作开发的 3D 游戏项目，包含 ECS 架构、ImGui UI 系统、多人联网等功能。"
 ---
 
+{{< rawhtml >}}
+<div style="margin-bottom: 1.5rem;">
+    <span class="badge-lang">C++</span>
+    <span class="badge-lang">OpenGL</span>
+    <span class="badge-tool">ImGui</span>
+    <span class="badge-tool">ENet</span>
+    <span class="badge-tool">NavMesh</span>
+</div>
+{{< /rawhtml >}}
+
 ## 项目简介
 
 CSC8507-08 是一个基于 C++ 和 OpenGL 的 3D 游戏项目。
